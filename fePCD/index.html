@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>REST Client</title>
+</head>
+<body>
+    <h1>REST Client</h1>
+    <button id="getData">Get Data</button>
+    <pre id="response"></pre>
+
+    <script>
+        document.getElementById('getData').addEventListener('click', function() {
+            fetch('http://localhost:8888/rest')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
